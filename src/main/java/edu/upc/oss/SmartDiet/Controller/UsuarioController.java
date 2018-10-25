@@ -1,3 +1,4 @@
+//SpringBoot uses martial for the convertion of the objects to a Json file
 package edu.upc.oss.SmartDiet.Controller;
 
 
@@ -24,6 +25,10 @@ public class UsuarioController {
 
         return list;
     }
+
+    //En el postman se encuentra la opcion header, los valores que debe de tener son los siguientes>
+    //Header : Content-Type
+    //Value  : aplication/json
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Usuario getPersonById(@PathVariable(value = "id") int id){
