@@ -7,11 +7,11 @@ spring:
   jpa:
     show-sql: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
       use-new-id-generator-mappings: true
 
   datasource:
-    url: jdbc:mysql://localhost/test?useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost/ProductsDB?useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver

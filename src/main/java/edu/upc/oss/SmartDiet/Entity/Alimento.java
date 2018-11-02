@@ -15,10 +15,12 @@ public class Alimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idalimento;
 
-    private String Nombre;
+    private String nombre;
     private int proteina;
     private int carbohidratos;
     private int grasas;
     private int cantidad;
     private int idUsuario;
+
+
 }
