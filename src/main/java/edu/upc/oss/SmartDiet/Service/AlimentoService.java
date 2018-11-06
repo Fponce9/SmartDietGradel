@@ -18,7 +18,7 @@ public class AlimentoService implements AlimentoServiceInterface {
 
     @Override
     public Alimento createAlimento(Alimento alimento) {
-        if (alimentoRepository.existsByNombre(alimento.getNombre())){
+        if (!alimentoRepository.existsByNombre(alimento.getNombre())){
             return alimentoRepository.save(alimento);}
        else return null;
     }

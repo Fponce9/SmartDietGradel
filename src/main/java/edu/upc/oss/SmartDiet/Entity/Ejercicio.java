@@ -11,7 +11,6 @@ import javax.persistence.Id;
 public class Ejercicio {
 
     @Id
-    @GeneratedValue
     private int idpdejercicio;
 
     private String nombre;

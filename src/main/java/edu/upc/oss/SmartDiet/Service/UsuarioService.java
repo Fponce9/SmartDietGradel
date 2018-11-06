@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService implements UsuarioServiceInterface {
@@ -21,24 +22,27 @@ public class UsuarioService implements UsuarioServiceInterface {
 
     @Override
     public Usuario createUser(Usuario user) {
-        if (usuarioRepository.existsUsuarioByUsuario(user.getUsuario())){
-        return usuarioRepository.save(user);}
+        if (!usuarioRepository.existsUsuarioByUsuario(user.getUsuario())){
+        return usuarioRepository.save(user);
+        }
         else return null;
     }
 
     @Override
-    public void deleteUser(Usuario user) {
-        usuarioRepository.delete(user);
+    public void deleteUser(int id ) {
+        usuarioRepository.deleteById(id);
     }
 
     @Override
-    public Usuario actualizarUsuario(Usuario user) {
-        Usuario usuario = new Usuario();
-        if(usuarioRepository.existsById(user.getIdusuario())){
-            usuarioRepository.save(user);
-            usuario = user;
+    public Optional<Usuario> actualizarUsuario(Usuario user) {
+        Optional<Usuario> usuarioActual =  usuarioRepository.findById(user.getIdusuario());
+
+        if(usuarioActual.isPresent()){
+            usuarioRepository.save(user); //merge
+        }else{
+            throw new RuntimeException("Usuario no encontrado");
         }
-        return usuario;
+        return usuarioActual;
     }
 
     @Override

@@ -34,4 +34,15 @@ public class UsuarioController {
     {
         return usuarioService.getUsuarioApellido(Apellido);
     }
+
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
+    public void updatePerson(@PathVariable int id, @RequestBody Usuario person){
+        person.setIdusuario(id);
+        usuarioService.actualizarUsuario(person);
+    }
+
+    @RequestMapping(value = "Delete/{id}" ,method = RequestMethod.DELETE)
+    public void deletePerson(@PathVariable int id){
+        usuarioService.deleteUser(id);
+    }
 }

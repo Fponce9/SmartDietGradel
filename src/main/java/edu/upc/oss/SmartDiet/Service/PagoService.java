@@ -16,7 +16,7 @@ public class PagoService implements PagoServiceInterface {
 
     @Override
     public Pago createPago(Pago pago) {
-        if (pagoRepository.existsPagoByNumTarjeta(pago.getNumTarjeta())){
+        if (!pagoRepository.existsPagoByNumTarjeta(pago.getNumTarjeta())){
             return pagoRepository.save(pago);
         }
         return null;

@@ -9,5 +9,4 @@ public interface UsuarioRepository extends CrudRepository<Usuario,Integer> {
 
     List<Usuario> getUsuariosByApellido(String Apellido);
     boolean existsUsuarioByUsuario(String user);
-
 }

@@ -10,11 +10,9 @@ import javax.persistence.Id;
 @Entity
 public class Pago {
     @Id
-    @GeneratedValue
     private int idUsuario;
 
     private int numTarjeta;
     private int CCV;
-
     private String NombTarjeta;
 }
