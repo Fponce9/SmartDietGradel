@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EstadoFisicoServiceInterface {
     EstadoFisico createEstadoFisico (EstadoFisico EstadoF);
-    void deleteEstadoFisico(EstadoFisico EstadoF);
+    void deleteEstadoFisico(int id);
     EstadoFisico actualizarEstadoFisico (EstadoFisico EstadoF);
     List<EstadoFisico> getAllEstadoFisicos();
     EstadoFisico getEstadoFisicoId(int ID);

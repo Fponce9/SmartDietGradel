@@ -34,4 +34,27 @@ public class EjercicioService implements EjercicioServiceInterface {
     public Ejercicio getEjercicioById(int id) {
         return ejercicioRepository.findById(id).get();
     }
+
+    @Override
+    public void deleteEjercicio(int id) {
+        ejercicioRepository.deleteById(id);
+    }
+
+    @Override
+    public Ejercicio actualizarEjercicio(Ejercicio ejercicio) {
+        Ejercicio ejercicio1 = new Ejercicio();
+        if(!ejercicioRepository.existsById(ejercicio.getIdpdejercicio())){
+            ejercicioRepository.save(ejercicio);
+            ejercicio1 = ejercicio;
+        }
+        return ejercicio1;
+    }
+    @Override
+    public List<Ejercicio> getEjerciciosporpuntaje(int puntaje){
+        List<Ejercicio> lista = new ArrayList<>();
+        ejercicioRepository.getEjercicioByPuntajeLessThanEqual(puntaje).iterator().forEachRemaining(lista::add);
+        return lista;
+
+
+    }
 }

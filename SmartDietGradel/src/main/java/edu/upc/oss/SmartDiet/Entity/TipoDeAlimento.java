@@ -15,7 +15,6 @@ public class TipoDeAlimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int IdTipoDA;
+
     private String nombre;
-
-
 }

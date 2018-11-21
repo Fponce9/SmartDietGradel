@@ -27,7 +27,17 @@ public class EstadoFisicoController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public EstadoFisico createEstadosFisico(@RequestBody EstadoFisico tipo){
-        return estadoFisicoService.createEstadoFisico(tipo);
+    public EstadoFisico createEstadosFisico(@RequestBody EstadoFisico estadoFisico){
+        return estadoFisicoService.createEstadoFisico(estadoFisico);
+    }
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
+    public void updateEstadoFisico(@PathVariable int id, @RequestBody EstadoFisico estadoFisico){
+        estadoFisico.setIdEFisico(id);
+        estadoFisicoService.actualizarEstadoFisico(estadoFisico);
+    }
+
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.DELETE)
+    public void deleteEstadoFisico(@PathVariable int id){
+        estadoFisicoService.deleteEstadoFisico(id);
     }
 }

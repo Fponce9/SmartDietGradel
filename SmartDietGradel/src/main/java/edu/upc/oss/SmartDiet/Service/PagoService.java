@@ -23,18 +23,23 @@ public class PagoService implements PagoServiceInterface {
     }
 
     @Override
-    public void deletePago(Pago pago) {
-        pagoRepository.delete(pago);
+    public void deletePago(int id) {
+        pagoRepository.deleteById(id);
     }
 
     @Override
     public Pago actualizarPago(Pago pago) {
-        return null;
+
+        Pago pago1 = new Pago();
+        if(!pagoRepository.existsById(pago.getCCV())){
+            pagoRepository.save(pago);
+            pago1 = pago;
+        }
+        return pago1;
+
+
     }
 
-    @Override
-    public Pago getPago(int userID) {
-        return pagoRepository.getPagoByIdUsuario(userID);
-    }
+
 
 }

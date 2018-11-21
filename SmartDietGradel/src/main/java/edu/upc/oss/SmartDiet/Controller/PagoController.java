@@ -11,13 +11,21 @@ import org.springframework.web.bind.annotation.*;
 public class PagoController {
 
     @Autowired
-    PagoService PagoService;
+    PagoService pagoService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public Pago getPagoById(@RequestBody Pago pago){return PagoService.createPago(pago);}
+    public Pago getPagoById(@RequestBody Pago pago){return pagoService.createPago(pago);}
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public Pago getPersonById(@PathVariable(value = "id") int id){
-        return PagoService.getPago(id);
+
+
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
+    public void updatePago(@PathVariable int id, @RequestBody Pago pago){
+        pago.setCCV(id);
+        pagoService.actualizarPago(pago);
+    }
+
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.DELETE)
+    public void deletePago(@PathVariable int id){
+        pagoService.deletePago(id);
     }
 }

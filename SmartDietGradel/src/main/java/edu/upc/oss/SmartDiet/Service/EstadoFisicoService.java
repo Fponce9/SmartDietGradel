@@ -27,8 +27,8 @@ public class EstadoFisicoService implements  EstadoFisicoServiceInterface {
     }
 
     @Override
-    public void deleteEstadoFisico(EstadoFisico EstadoF) {
-        estadoFisicoRepository.delete(EstadoF);
+    public void deleteEstadoFisico(int id) {
+        estadoFisicoRepository.deleteById(id);
     }
 
     @Override

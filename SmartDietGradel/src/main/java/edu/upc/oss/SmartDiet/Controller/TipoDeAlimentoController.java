@@ -29,5 +29,16 @@ public class TipoDeAlimentoController {
         return tipoDeAlimentoService.createTipoDA(tipo);
     }
 
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
+    public void updateTipoDA(@PathVariable int id, @RequestBody TipoDeAlimento tipo){
+        tipo.setIdTipoDA(id);
+        tipoDeAlimentoService.actualizarTipoDeAlimento(tipo);
+    }
+
+    @RequestMapping(value = "/{id}" ,method = RequestMethod.DELETE)
+    public void deleteTipoDA(@PathVariable int id){
+        tipoDeAlimentoService.deleteTipoDA(id);
+    }
+
 
 }

@@ -27,8 +27,8 @@ public class TipoDeAlimentoService implements TipoDeAlimentoServiceInterface{
     }
 
     @Override
-    public void deleteTipoDA(TipoDeAlimento TipoDA) {
-        tipoDeAlimentoRepository.delete(TipoDA);
+    public void deleteTipoDA(int id) {
+        tipoDeAlimentoRepository.deleteById(id);
     }
 
     @Override
